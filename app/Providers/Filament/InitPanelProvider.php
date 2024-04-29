@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Exception;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -18,9 +19,13 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
+use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 
 class InitPanelProvider extends PanelProvider
 {
+    /**
+     * @throws Exception
+     */
     public function panel(Panel $panel): Panel
     {
         return $panel
@@ -42,7 +47,6 @@ class InitPanelProvider extends PanelProvider
                 Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
-                InitializeTenancyByDomain::class,
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,
@@ -53,6 +57,10 @@ class InitPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->middleware([
+                PreventAccessFromCentralDomains::class,
+                InitializeTenancyByDomain::class,
+            ], isPersistent: true)
             ->authMiddleware([
                 Authenticate::class,
             ]);
