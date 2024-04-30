@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
+use Tests\RefreshDatabaseWithTenant;
+
 uses(
     Tests\TestCase::class,
-// Illuminate\Foundation\Testing\RefreshDatabase::class,
+    RefreshDatabaseWithTenant::class
 )->in('Feature');
 
 /*

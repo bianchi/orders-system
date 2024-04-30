@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Filament\Resources\UserResource\Pages;
+namespace Tests\Feature\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
 use App\Models\User;
