@@ -2,6 +2,9 @@
   "preset": "laravel",
   "rules": {
     "no_trailing_comma_in_singleline_array": true,
+    "concat_space" : {
+      "spacing": "one"
+    },
     "class_definition": {
       "space_before_parenthesis": false
     },
