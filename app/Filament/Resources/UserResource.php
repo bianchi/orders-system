@@ -8,6 +8,7 @@ use App\Filament\Resources\UserResource\Pages;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -69,10 +70,41 @@ class UserResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->before(
+                        function ($record, Tables\Actions\DeleteAction $action) {
+                            $accountOwnerId = User::first()->id;
+                            if ($record->id === $accountOwnerId) {
+                                Notification::make()
+                                    ->title(__('messages.error'))
+                                    ->body(__('messages.cannot_delete_account_owner'))
+                                    ->status('danger')
+                                    ->send();
+
+                                // todo change to cancel if discover how to test cancel
+                                $action->halt();
+                            }
+                        }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->before(
+                            function ($records, Tables\Actions\DeleteBulkAction $action) {
+                                $idsToDelete = $records->pluck('id')->toArray();
+                                $accountOwnerId = User::first()->id;
+                                if (in_array($accountOwnerId, $idsToDelete, true)) {
+                                    Notification::make()
+                                        ->title(__('messages.error'))
+                                        ->body(__('messages.cannot_delete_account_owner'))
+                                        ->status('danger')
+                                        ->send();
+
+                                    // todo change to cancel if discover how to test cancel
+                                    $action->halt();
+                                }
+                            }
+                        ),
                 ]),
             ]);
     }

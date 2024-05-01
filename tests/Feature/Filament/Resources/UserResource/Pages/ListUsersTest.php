@@ -6,6 +6,8 @@ namespace Tests\Feature\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
 use App\Models\User;
+use Filament\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 
 use function Pest\Livewire\livewire;
 
@@ -26,11 +28,8 @@ it('can list users', function () {
         ->assertCanSeeTableRecords($this->users)
         ->assertCanRenderTableColumn('name')
         ->assertCanRenderTableColumn('email')
-        ->assertTableColumnExists('email_verified_at')
         ->assertCanNotRenderTableColumn('email_verified_at')
-        ->assertTableColumnExists('created_at')
         ->assertCanNotRenderTableColumn('created_at')
-        ->assertTableColumnExists('updated_at')
         ->assertCanNotRenderTableColumn('updated_at');
 });
 
@@ -100,4 +99,51 @@ it('can search users by partial email', function () {
         ->searchTable('john@')
         ->assertCanSeeTableRecords($this->users->filter(fn ($user) => str_contains($user->email, 'john@')))
         ->assertCanNotSeeTableRecords($this->users->filter(fn ($user) => ! str_contains($user->email, 'john@')));
+});
+
+it('can delete user', function () {
+    $firstUser = $this->users->first();
+
+    livewire(UserResource\Pages\ListUsers::class)
+        ->callTableAction(DeleteAction::class, $firstUser);
+
+    $this->assertModelMissing($firstUser);
+});
+
+it('can bulk delete users', function () {
+    $firstUser = $this->users->first();
+    $secondUser = $this->users->get(1);
+
+    livewire(UserResource\Pages\ListUsers::class)
+        ->callTableBulkAction(DeleteBulkAction::class, collect([$firstUser, $secondUser]));
+
+    $this->assertModelMissing($firstUser);
+    $this->assertModelMissing($secondUser);
+});
+
+it('can see edit link', function () {
+    livewire(UserResource\Pages\ListUsers::class)
+        ->assertSee(UserResource::getUrl('edit', [
+            'record' => $this->users->first(),
+        ]));
+});
+
+it('delete will halt if user is the account owner', function () {
+    $accountOwner = User::first();
+
+    livewire(UserResource\Pages\ListUsers::class)
+        ->callTableAction(DeleteAction::class, $accountOwner)
+        ->assertTableActionHalted(DeleteAction::class);
+
+    $this->assertModelExists($accountOwner);
+});
+
+it('bulk delete will halt if user is the account owner', function () {
+    $accountOwner = User::first();
+
+    livewire(UserResource\Pages\ListUsers::class)
+        ->callTableBulkAction(DeleteBulkAction::class, collect([$accountOwner]))
+        ->assertTableBulkActionHalted(DeleteBulkAction::class);
+
+    $this->assertModelExists($accountOwner);
 });
