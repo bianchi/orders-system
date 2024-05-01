@@ -50,6 +50,7 @@ class UserResource extends Resource
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
+                    ->icon('heroicon-m-envelope')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email_verified_at')
@@ -76,8 +77,8 @@ class UserResource extends Resource
                             $accountOwnerId = User::first()->id;
                             if ($record->id === $accountOwnerId) {
                                 Notification::make()
-                                    ->title(__('messages.error'))
-                                    ->body(__('messages.cannot_delete_account_owner'))
+                                    ->title(__('Error'))
+                                    ->body(__('The account owner cannot be deleted.'))
                                     ->status('danger')
                                     ->send();
 
