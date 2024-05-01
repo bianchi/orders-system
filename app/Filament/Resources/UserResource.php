@@ -23,6 +23,8 @@ class UserResource extends Resource
 
     protected static ?string $pluralModelLabel = 'usuários';
 
+    // todo test
+    // @see https://filamentphp.com/docs/3.x/forms/testing
     public static function form(Form $form): Form
     {
         return $form
@@ -34,11 +36,17 @@ class UserResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\DateTimePicker::make('email_verified_at'),
                 Forms\Components\TextInput::make('password')
                     ->password()
+                    ->confirmed()
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->hiddenOn(Pages\EditUser::class),
+                Forms\Components\TextInput::make('password_confirmation')
+                    ->password()
+                    ->required()
+                    ->maxLength(255)
+                    ->hiddenOn(Pages\EditUser::class),
             ]);
     }
 
@@ -53,10 +61,6 @@ class UserResource extends Resource
                     ->icon('heroicon-m-envelope')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

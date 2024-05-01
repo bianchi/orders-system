@@ -151,5 +151,6 @@
   "Error": "Erro",
   "Email verified at": "Email verificado em",
   "Created at": "Criado em",
-  "Updated at": "Alterado em"
+  "Updated at": "Alterado em",
+  "The password field confirmation does not match": "A confirmação da senha não confere com a senha."
 }

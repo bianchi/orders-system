@@ -28,7 +28,6 @@ it('can list users', function () {
         ->assertCanSeeTableRecords($this->users)
         ->assertCanRenderTableColumn('name')
         ->assertCanRenderTableColumn('email')
-        ->assertCanNotRenderTableColumn('email_verified_at')
         ->assertCanNotRenderTableColumn('created_at')
         ->assertCanNotRenderTableColumn('updated_at');
 });
@@ -47,14 +46,6 @@ it('can sort users by email', function () {
         ->assertCanSeeTableRecords($this->users->sortBy('email'), inOrder: true)
         ->sortTable('email', 'desc')
         ->assertCanSeeTableRecords($this->users->sortByDesc('email'), inOrder: true);
-});
-
-it('can sort users by email_verified_at', function () {
-    livewire(UserResource\Pages\ListUsers::class)
-        ->sortTable('email_verified_at')
-        ->assertCanSeeTableRecords($this->users->sortBy('email_verified_at'), inOrder: true)
-        ->sortTable('email_verified_at', 'desc')
-        ->assertCanSeeTableRecords($this->users->sortByDesc('email_verified_at'), inOrder: true);
 });
 
 it('can sort users by created_at', function () {
