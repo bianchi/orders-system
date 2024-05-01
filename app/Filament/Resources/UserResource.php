@@ -23,8 +23,6 @@ class UserResource extends Resource
 
     protected static ?string $pluralModelLabel = 'usuários';
 
-    // todo test
-    // @see https://filamentphp.com/docs/3.x/forms/testing
     public static function form(Form $form): Form
     {
         return $form

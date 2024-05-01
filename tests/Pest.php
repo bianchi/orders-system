@@ -9,6 +9,11 @@ uses(
     RefreshDatabaseWithTenant::class
 )->in('Feature');
 
+uses(
+    Tests\TestCase::class,
+    RefreshDatabaseWithTenant::class
+)->in('Unit');
+
 /*
 |--------------------------------------------------------------------------
 | Expectations
