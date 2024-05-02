@@ -26,6 +26,20 @@ return [
         'roles'       => true,
     ],
 
+    /**
+     * Set to true to redirect to the resource index instead of the view
+     */
+    'should_redirect_to_index' => [
+        'permissions' => [
+            'after_create' => true,
+            'after_edit'   => true,
+        ],
+        'roles' => [
+            'after_create' => true,
+            'after_edit'   => true,
+        ],
+    ],
+
     /*
      * If you want to place the Resource in a Cluster, then set the required Cluster class.
      * Eg. \App\Filament\Clusters\Cluster::class
