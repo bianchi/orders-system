@@ -8,6 +8,7 @@ use App\Models\User;
 
 class UserPolicy
 {
+    // TODO check permissions with spatie
     public function viewAny(User $user): bool
     {
         return true;

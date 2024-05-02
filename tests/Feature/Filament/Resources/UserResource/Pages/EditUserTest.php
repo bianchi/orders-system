@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Filament\Resources\UserResource\Pages;
 
+use App\Enums\Role;
 use App\Filament\Resources\UserResource\Pages\EditUser;
 use App\Models\User;
 use Filament\Actions\DeleteAction;
@@ -13,6 +14,7 @@ use function Pest\Livewire\livewire;
 
 beforeEach(function () {
     $this->user = User::factory()->create();
+    $this->user->assignRole(Role::SuperAdmin);
 });
 
 it('has correct fields and buttons', function () {
@@ -22,6 +24,7 @@ it('has correct fields and buttons', function () {
         ->assertFormFieldExists('email')
         ->assertFormFieldIsHidden('password')
         ->assertFormFieldIsHidden('password_confirmation')
+        ->assertFormFieldExists('roles')
         ->assertActionExists('save')
         ->assertActionExists('delete')
         ->assertActionExists('cancel')

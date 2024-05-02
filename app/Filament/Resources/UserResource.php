@@ -45,6 +45,13 @@ class UserResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->hiddenOn(Pages\EditUser::class),
+                Forms\Components\Select::make('roles')
+                    ->multiple()
+                    ->relationship('roles', 'name')
+                    ->native(false)
+                    ->searchable()
+                    ->preload()
+                    ->label(__('filament-spatie-roles-permissions::filament-spatie.field.roles')),
             ]);
     }
 

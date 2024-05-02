@@ -15,6 +15,7 @@ it('has correct fields and buttons', function () {
         ->assertFormFieldExists('email')
         ->assertFormFieldExists('password')
         ->assertFormFieldExists('password_confirmation')
+        ->assertFormFieldExists('roles')
         ->assertActionExists('create')
         ->assertActionExists('createAnother')
         ->assertActionExists('cancel')
