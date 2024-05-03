@@ -8,14 +8,28 @@ use App\Filament\Resources\UserResource;
 use App\Models\User;
 use Filament\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
 
 use function Pest\Livewire\livewire;
 
 beforeEach(function () {
-    $this->users = User::factory()->count(7)->create();
+    User::unguard();
+
+    $this->users = new Collection();
+
+    $fakeDate = Carbon::now()->subYear()->startOfDay();
+    for ($i = 0; $i < 7; $i++) {
+        $fakeDate->addMinute();
+        $this->users->add(User::factory()->create(['created_at' => $fakeDate, 'updated_at' => $fakeDate]));
+    }
+    $fakeDate->addMinute();
+    $this->users->add(User::factory()->create(['name' => 'John White', 'email' => 'john.white@example.com', 'created_at' => $fakeDate, 'updated_at' => $fakeDate]));
+    $fakeDate->addMinute();
+    $this->users->add(User::factory()->create(['name' => 'John Doe', 'email' => 'john.doe@example.com', 'created_at' => $fakeDate, 'updated_at' => $fakeDate]));
     $this->users->add($this->user);
-    $this->users->add(User::factory()->create(['name' => 'John White', 'email' => 'john.white@example.com']));
-    $this->users->add(User::factory()->create(['name' => 'John Doe', 'email' => 'john.doe@example.com']));
+
+    User::reguard();
 });
 
 it('can render page', function () {
