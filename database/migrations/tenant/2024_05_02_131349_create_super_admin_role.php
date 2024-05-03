@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -31,6 +30,5 @@ return new class() extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('super_admin_role');
     }
 };

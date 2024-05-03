@@ -19,4 +19,8 @@ class Permission extends SpatiePermission
     public const string VIEW_ROLE = 'View roles';
     public const string EDIT_ROLE = 'Edit roles';
     public const string DELETE_ROLE = 'Delete roles';
+    public const string CREATE_CATEGORY = 'Create categories';
+    public const string VIEW_CATEGORY = 'View categories';
+    public const string EDIT_CATEGORY = 'Edit categories';
+    public const string DELETE_CATEGORY = 'Delete categories';
 }
