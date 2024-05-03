@@ -31,7 +31,8 @@ class EditUser extends EditRecord
                             // todo change to cancel if discover how to test cancel
                             $action->halt();
                         }
-                    }),
+                    }
+                ),
         ];
     }
 }
