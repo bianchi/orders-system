@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -29,4 +31,5 @@ return [
     'select-team' => 'Select a Team',
     'select-team-hint' => 'Leave blank for a global role',
     'section.users' => 'Users',
+    'section.users_with_this_role' => 'Users with this role',
 ];

@@ -44,6 +44,14 @@ it('can list categories', function () {
         ->assertCanNotRenderTableColumn('updated_at');
 });
 
+it('can sort categories by id', function () {
+    livewire(CategoryResource\Pages\ListCategories::class)
+        ->sortTable('id')
+        ->assertCanSeeTableRecords($this->categories->sortBy('id'), inOrder: true)
+        ->sortTable('id', 'desc')
+        ->assertCanSeeTableRecords($this->categories->sortByDesc('id'), inOrder: true);
+});
+
 it('can sort categories by name', function () {
     livewire(CategoryResource\Pages\ListCategories::class)
         ->sortTable('name')

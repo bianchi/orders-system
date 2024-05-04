@@ -52,10 +52,10 @@ trait RefreshDatabaseWithTenant
              * Set the tenant prefix to the parallel testing token.
              * This is necessary to avoid database collisions when running tests in parallel.
              */
-            config(['tenancy.database.prefix' => config('tenancy.database.prefix') . ParallelTesting::token()]);
+            config(['tenancy.database.prefix' => config('tenancy.database.prefix').ParallelTesting::token()]);
 
             // Define the database name for the tenant.
-            $dbName = config('tenancy.database.prefix') . $tenantId;
+            $dbName = config('tenancy.database.prefix').$tenantId;
 
             // Drop the database if it already exists.
             DB::unprepared("DROP SCHEMA IF EXISTS $dbName CASCADE");
@@ -63,7 +63,7 @@ trait RefreshDatabaseWithTenant
             // Create the tenant and associated domain if they don't exist.
             $t = Tenant::create(['id' => $tenantId]);
             if (! $t->domains()->count()) {
-                $t->domains()->create(['domain' => $tenantId . '.localhost']);
+                $t->domains()->create(['domain' => $tenantId.'.localhost']);
             }
 
             return $t;
@@ -72,7 +72,7 @@ trait RefreshDatabaseWithTenant
         // Initialize tenancy for the current test.
         tenancy()->initialize($tenant);
 
-        $this->app['config']->set('session.domain', $tenant->id . '.localhost');
-        $this->app['url']->forceRootUrl('http://' . $tenant->id . '.localhost');
+        $this->app['config']->set('session.domain', $tenant->id.'.localhost');
+        $this->app['url']->forceRootUrl('http://'.$tenant->id.'.localhost');
     }
 }

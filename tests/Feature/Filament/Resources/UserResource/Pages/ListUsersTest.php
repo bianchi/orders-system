@@ -46,6 +46,14 @@ it('can list users', function () {
         ->assertCanNotRenderTableColumn('updated_at');
 });
 
+it('can sort roles by id', function () {
+    livewire(UserResource\Pages\ListUsers::class)
+        ->sortTable('id')
+        ->assertCanSeeTableRecords($this->users->sortBy('id'), inOrder: true)
+        ->sortTable('id', 'desc')
+        ->assertCanSeeTableRecords($this->users->sortByDesc('id'), inOrder: true);
+});
+
 it('can sort users by name', function () {
     livewire(UserResource\Pages\ListUsers::class)
         ->sortTable('name')

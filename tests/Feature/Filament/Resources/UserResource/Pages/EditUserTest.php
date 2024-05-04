@@ -41,16 +41,16 @@ it('can save without change data', function () {
 it('can validate input', function () {
     livewire(EditUser::class, ['record' => $this->user->id])
         ->fillForm([
-            'name'  => null,
+            'name' => null,
             'email' => null,
         ])
         ->call('save')
         ->assertHasFormErrors([
-            'name'  => 'required',
+            'name' => 'required',
             'email' => 'required',
         ])
         ->fillForm([
-            'name'  => 'Any name',
+            'name' => 'Any name',
             'email' => 'invalidemail.com',
         ])
         ->call('save')

@@ -26,23 +26,23 @@ it('can validate input', function () {
     livewire(CreateUser::class)
         ->call('create')
         ->assertHasFormErrors([
-            'name'                  => 'required',
-            'email'                 => 'required',
-            'password'              => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
             'password_confirmation' => 'required',
         ])
         ->fillForm([
-            'name'                  => 'Any name',
-            'email'                 => 'invalidemail.com',
-            'password'              => '123',
+            'name' => 'Any name',
+            'email' => 'invalidemail.com',
+            'password' => '123',
             'password_confirmation' => '1234',
         ])
         ->call('create')
         ->assertHasFormErrors([
-            'email'    => 'email',
+            'email' => 'email',
             'password' => 'confirmed',
         ])->fillForm([
-            'email'                 => 'valid@email.com',
+            'email' => 'valid@email.com',
             'password_confirmation' => '123',
         ])
         ->call('create')

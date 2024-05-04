@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
+use Althinect\FilamentSpatieRolesPermissions\Resources\PermissionResource;
+
 return [
     'resources' => [
-        'PermissionResource' => \Althinect\FilamentSpatieRolesPermissions\Resources\PermissionResource::class,
-        'RoleResource'       => \Althinect\FilamentSpatieRolesPermissions\Resources\RoleResource::class,
+        'PermissionResource' => PermissionResource::class,
+        'RoleResource' => \App\Filament\Resources\RoleResource::class,
     ],
 
     'preload_roles' => true,
@@ -23,7 +25,7 @@ return [
      */
     'should_register_on_navigation' => [
         'permissions' => false,
-        'roles'       => true,
+        'roles' => true,
     ],
 
     /**
@@ -32,11 +34,11 @@ return [
     'should_redirect_to_index' => [
         'permissions' => [
             'after_create' => true,
-            'after_edit'   => true,
+            'after_edit' => true,
         ],
         'roles' => [
             'after_create' => true,
-            'after_edit'   => true,
+            'after_edit' => true,
         ],
     ],
 
@@ -46,7 +48,7 @@ return [
      */
     'clusters' => [
         'permissions' => null,
-        'roles'       => null,
+        'roles' => null,
     ],
 
     'guard_names' => [
@@ -73,7 +75,7 @@ return [
      * Icons to use for navigation
      */
     'icons' => [
-        'role_navigation'       => 'heroicon-o-lock-closed',
+        'role_navigation' => 'heroicon-o-lock-closed',
         'permission_navigation' => 'heroicon-o-lock-closed',
     ],
 
@@ -82,7 +84,7 @@ return [
      */
 
     'sort' => [
-        'role_navigation'       => false,
+        'role_navigation' => false,
         'permission_navigation' => false,
     ],
 
@@ -99,12 +101,12 @@ return [
              * Permissions Aligned with Policies.
              * DO NOT change the keys unless the genericPolicy.stub is published and altered accordingly
              */
-            'viewAnyPermission'     => 'view-any',
-            'viewPermission'        => 'view',
-            'createPermission'      => 'create',
-            'updatePermission'      => 'update',
-            'deletePermission'      => 'delete',
-            'restorePermission'     => 'restore',
+            'viewAnyPermission' => 'view-any',
+            'viewPermission' => 'view',
+            'createPermission' => 'create',
+            'updatePermission' => 'update',
+            'deletePermission' => 'delete',
+            'restorePermission' => 'restore',
             'forceDeletePermission' => 'force-delete',
 
             /*

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -8,7 +10,7 @@ return [
     */
 
     'field.guard_name' => 'Nome do Guarda',
-    'field.permissions_count' => 'Contagem de Permissões',
+    'field.permissions_count' => 'Permissões',
     'field.name' => 'Nome',
     'field.permissions' => 'Permissões',
     'field.roles' => 'Funções',
@@ -29,4 +31,5 @@ return [
     'select-team' => 'Selecione um time',
     'select-team-hint' => 'Deixe em branco para uma função global',
     'section.users' => 'Usuários',
+    'section.users_with_this_role' => 'Usuários com essa função',
 ];

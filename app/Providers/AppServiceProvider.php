@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use App\Enums\Role;
 use App\Policies\PermissionPolicy;
+use App\Policies\RolePolicy;
 use Filament\Tables\Columns\Column;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -28,5 +29,6 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::policy(\Spatie\Permission\Models\Permission::class, PermissionPolicy::class);
+        Gate::policy(\Spatie\Permission\Models\Role::class, RolePolicy::class);
     }
 }

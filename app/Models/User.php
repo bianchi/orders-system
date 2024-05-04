@@ -19,7 +19,6 @@ class User extends Authenticatable implements FilamentUser
     use Notifiable;
 
     protected $guarded = ['id'];
-
     protected $hidden = [
         'password',
         'remember_token',
@@ -29,7 +28,7 @@ class User extends Authenticatable implements FilamentUser
     {
         return [
             'email_verified_at' => 'datetime',
-            'password'          => 'hashed',
+            'password' => 'hashed',
         ];
     }
 
