@@ -42,6 +42,8 @@ return [
         ],
     ],
 
+    'should_show_guard' => false,
+
     /*
      * If you want to place the Resource in a Cluster, then set the required Cluster class.
      * Eg. \App\Filament\Clusters\Cluster::class

@@ -26,5 +26,9 @@ return new class() extends Migration
      */
     public function down(): void
     {
+        Permission::query()->where('name', 'Create categories')->delete();
+        Permission::query()->where('name', 'View categories')->delete();
+        Permission::query()->where('name', 'Edit categories')->delete();
+        Permission::query()->where('name', 'Delete categories')->delete();
     }
 };

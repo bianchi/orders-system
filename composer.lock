@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "althinect/filament-spatie-roles-permissions",
-            "version": "v2.2.25",
+            "version": "v2.2.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Althinect/filament-spatie-roles-permissions.git",
-                "reference": "78bfefa6ddb58091dea781ec276aaa3b432b21f8"
+                "reference": "9ea7db44c3a8cb5cbbbd705ef3c7fc4c80c87b75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Althinect/filament-spatie-roles-permissions/zipball/78bfefa6ddb58091dea781ec276aaa3b432b21f8",
-                "reference": "78bfefa6ddb58091dea781ec276aaa3b432b21f8",
+                "url": "https://api.github.com/repos/Althinect/filament-spatie-roles-permissions/zipball/9ea7db44c3a8cb5cbbbd705ef3c7fc4c80c87b75",
+                "reference": "9ea7db44c3a8cb5cbbbd705ef3c7fc4c80c87b75",
                 "shasum": ""
             },
             "require": {
@@ -65,9 +65,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Althinect/filament-spatie-roles-permissions/issues",
-                "source": "https://github.com/Althinect/filament-spatie-roles-permissions/tree/v2.2.25"
+                "source": "https://github.com/Althinect/filament-spatie-roles-permissions/tree/v2.2.26"
             },
-            "time": "2024-04-08T00:17:00+00:00"
+            "time": "2024-05-06T07:09:09+00:00"
         },
         {
             "name": "anourvalar/eloquent-serialize",
@@ -467,16 +467,16 @@
         },
         {
             "name": "danharrin/livewire-rate-limiting",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danharrin/livewire-rate-limiting.git",
-                "reference": "bf16003f0d977b5a41071526d697eec94ac41735"
+                "reference": "1a1b299e20de61f88ed6e94ea0bbcfc33aab1ddb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danharrin/livewire-rate-limiting/zipball/bf16003f0d977b5a41071526d697eec94ac41735",
-                "reference": "bf16003f0d977b5a41071526d697eec94ac41735",
+                "url": "https://api.github.com/repos/danharrin/livewire-rate-limiting/zipball/1a1b299e20de61f88ed6e94ea0bbcfc33aab1ddb",
+                "reference": "1a1b299e20de61f88ed6e94ea0bbcfc33aab1ddb",
                 "shasum": ""
             },
             "require": {
@@ -517,7 +517,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-21T14:53:34+00:00"
+            "time": "2024-05-06T09:10:03+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -4016,16 +4016,16 @@
         },
         {
             "name": "openspout/openspout",
-            "version": "v4.23.0",
+            "version": "v4.23.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/openspout/openspout.git",
-                "reference": "28f6a0e45acc3377f34c26cc3866e21f0447e0c8"
+                "reference": "912b2286bdea975b3b9f6b1a1021cc0adaade13e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openspout/openspout/zipball/28f6a0e45acc3377f34c26cc3866e21f0447e0c8",
-                "reference": "28f6a0e45acc3377f34c26cc3866e21f0447e0c8",
+                "url": "https://api.github.com/repos/openspout/openspout/zipball/912b2286bdea975b3b9f6b1a1021cc0adaade13e",
+                "reference": "912b2286bdea975b3b9f6b1a1021cc0adaade13e",
                 "shasum": ""
             },
             "require": {
@@ -4039,13 +4039,13 @@
             },
             "require-dev": {
                 "ext-zlib": "*",
-                "friendsofphp/php-cs-fixer": "^3.46.0",
-                "infection/infection": "^0.27.9",
+                "friendsofphp/php-cs-fixer": "^3.55.0",
+                "infection/infection": "^0.28.1",
                 "phpbench/phpbench": "^1.2.15",
-                "phpstan/phpstan": "^1.10.55",
-                "phpstan/phpstan-phpunit": "^1.3.15",
-                "phpstan/phpstan-strict-rules": "^1.5.2",
-                "phpunit/phpunit": "^10.5.5"
+                "phpstan/phpstan": "^1.10.67",
+                "phpstan/phpstan-phpunit": "^1.3.16",
+                "phpstan/phpstan-strict-rules": "^1.5.5",
+                "phpunit/phpunit": "^10.5.20"
             },
             "suggest": {
                 "ext-iconv": "To handle non UTF-8 CSV files (if \"php-mbstring\" is not already installed or is too limited)",
@@ -4093,7 +4093,7 @@
             ],
             "support": {
                 "issues": "https://github.com/openspout/openspout/issues",
-                "source": "https://github.com/openspout/openspout/tree/v4.23.0"
+                "source": "https://github.com/openspout/openspout/tree/v4.23.1"
             },
             "funding": [
                 {
@@ -4105,7 +4105,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-09T09:30:37+00:00"
+            "time": "2024-05-06T07:22:51+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -10082,16 +10082,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.28.0",
+            "version": "1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb"
+                "reference": "536889f2b340489d328f5ffb7b02bb6b183ddedc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb",
-                "reference": "cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/536889f2b340489d328f5ffb7b02bb6b183ddedc",
+                "reference": "536889f2b340489d328f5ffb7b02bb6b183ddedc",
                 "shasum": ""
             },
             "require": {
@@ -10123,9 +10123,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.28.0"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.29.0"
             },
-            "time": "2024-04-03T18:51:33+00:00"
+            "time": "2024-05-06T12:04:23+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -10892,12 +10892,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "ddcd0a72eec2dd32a4a4bb719a95201f753f12e8"
+                "reference": "386924e51b2e98d13dcc88bb530807046edbda90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/ddcd0a72eec2dd32a4a4bb719a95201f753f12e8",
-                "reference": "ddcd0a72eec2dd32a4a4bb719a95201f753f12e8",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/386924e51b2e98d13dcc88bb530807046edbda90",
+                "reference": "386924e51b2e98d13dcc88bb530807046edbda90",
                 "shasum": ""
             },
             "conflict": {
@@ -11111,7 +11111,7 @@
                 "getkirby/panel": "<2.5.14",
                 "getkirby/starterkit": "<=3.7.0.2",
                 "gilacms/gila": "<=1.15.4",
-                "gleez/cms": "<=1.2|==2",
+                "gleez/cms": "<=1.3|==2",
                 "globalpayments/php-sdk": "<2",
                 "gogentooss/samlbase": "<1.2.7",
                 "google/protobuf": "<3.15",
@@ -11522,7 +11522,7 @@
                 "topthink/thinkphp": "<=3.2.3",
                 "torrentpier/torrentpier": "<=2.4.1",
                 "tpwd/ke_search": "<4.0.3|>=4.1,<4.6.6|>=5,<5.0.2",
-                "tribalsystems/zenario": "<=9.4.59197",
+                "tribalsystems/zenario": "<9.5.60602",
                 "truckersmp/phpwhois": "<=4.3.1",
                 "ttskch/pagination-service-provider": "<1",
                 "twig/twig": "<1.44.7|>=2,<2.15.3|>=3,<3.4.3",
@@ -11676,7 +11676,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-03T21:04:13+00:00"
+            "time": "2024-05-06T15:04:21+00:00"
         },
         {
             "name": "sebastian/cli-parser",
