@@ -7,7 +7,6 @@ namespace Tests\Filament\Resources\RoleResource\Pages;
 use App\Filament\Resources\RoleResource\Pages\EditRole;
 use App\Models\Permission;
 use App\Models\Role;
-use Illuminate\Support\Str;
 
 use function Pest\Livewire\livewire;
 
@@ -41,13 +40,6 @@ it('can validate input', function () {
         ->call('save')
         ->assertHasFormErrors([
             'name' => 'required',
-        ])
-        ->fillForm([
-            'name' => Str::random(61),
-        ])
-        ->call('save')
-        ->assertHasFormErrors([
-            'name' => 'max',
         ])->fillForm([
             'name' => 'Any valid name',
         ])

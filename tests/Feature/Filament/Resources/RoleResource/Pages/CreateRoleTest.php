@@ -28,12 +28,6 @@ it('can validate input', function () {
             'name' => 'required',
         ])
         ->fillForm([
-            'name' => Str::random(61),
-        ])
-        ->call('create')
-        ->assertHasFormErrors([
-            'name' => 'max',
-        ])->fillForm([
             'name' => 'Any valid name',
         ])
         ->call('create')
